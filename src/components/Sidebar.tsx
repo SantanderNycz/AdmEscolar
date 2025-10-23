@@ -35,27 +35,25 @@ export function Sidebar() {
   return (
     <div
       className={cn(
-        "fixed left-0 top-0 z-50 h-screen bg-sidebar border-r border-sidebar-border transition-all duration-300",
+        "fixed left-0 top-0 z-50 h-screen bg-white border-r border-slate-200 transition-all duration-300",
         collapsed ? "w-16" : "w-64"
       )}
     >
       {/* Header */}
-      <div className="flex items-center justify-between p-4 border-b border-sidebar-border">
+      <div className="flex items-center justify-between p-4 border-b border-slate-200">
         {!collapsed && (
           <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
               <GraduationCap className="w-5 h-5 text-white" />
             </div>
-            <span className="font-semibold text-sidebar-foreground">
-              EduAdmin
-            </span>
+            <span className="font-semibold text-slate-900">EduAdmin</span>
           </div>
         )}
         <Button
           variant="ghost"
           size="sm"
           onClick={() => setCollapsed(!collapsed)}
-          className="text-sidebar-foreground hover:bg-sidebar-accent"
+          className="text-slate-600 hover:bg-slate-100"
         >
           {collapsed ? (
             <ChevronRight className="w-4 h-4" />
@@ -74,21 +72,19 @@ export function Sidebar() {
             className={cn(
               "flex items-center space-x-3 px-3 py-2.5 rounded-lg transition-all duration-200 group",
               isActive(item.url)
-                ? "bg-sidebar-primary text-sidebar-primary-foreground shadow-soft"
-                : "text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground"
+                ? "bg-blue-500 text-white shadow-sm"
+                : "text-slate-600 hover:bg-slate-100 hover:text-slate-900"
             )}
           >
             <item.icon
               className={cn(
                 "w-5 h-5 transition-colors",
                 isActive(item.url)
-                  ? "text-sidebar-primary-foreground"
-                  : "text-sidebar-foreground group-hover:text-sidebar-accent-foreground"
+                  ? "text-white"
+                  : "text-slate-600 group-hover:text-slate-900"
               )}
             />
-            {!collapsed && (
-              <span className="font-medium">{item.title}</span>
-            )}
+            {!collapsed && <span className="font-medium">{item.title}</span>}
           </NavLink>
         ))}
       </nav>
@@ -96,16 +92,16 @@ export function Sidebar() {
       {/* User info at bottom */}
       {!collapsed && (
         <div className="absolute bottom-4 left-4 right-4">
-          <div className="bg-sidebar-accent rounded-lg p-3">
+          <div className="bg-slate-50 rounded-lg p-3">
             <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-secondary rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
                 <span className="text-xs font-semibold text-white">AD</span>
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium text-sidebar-foreground truncate">
+                <p className="text-sm font-medium text-slate-900 truncate">
                   Administrador
                 </p>
-                <p className="text-xs text-sidebar-foreground/60 truncate">
+                <p className="text-xs text-slate-500 truncate">
                   admin@escola.com
                 </p>
               </div>
