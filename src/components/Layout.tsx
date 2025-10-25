@@ -1,16 +1,13 @@
 import { Sidebar } from "@/components/Sidebar";
 import { cn } from "@/lib/utils";
+import { Outlet } from "react-router-dom";
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
-
-export function Layout({ children }: LayoutProps) {
+export function Layout() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background flex">
       <Sidebar />
-      <main className={cn("ml-64 transition-all duration-300")}>
-        {children}
+      <main className={cn("flex-1 ml-64 p-6 transition-all duration-300")}>
+        <Outlet />
       </main>
     </div>
   );
